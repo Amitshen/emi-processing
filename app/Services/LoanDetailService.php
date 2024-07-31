@@ -4,6 +4,8 @@ namespace App\Services;
 
 use App\Repositories\LoanDetailRepositoryInterface;
 
+// not using this service
+
 class LoanDetailService
 {
     protected $loanDetailRepository;

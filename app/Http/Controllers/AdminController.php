@@ -16,6 +16,7 @@ class AdminController extends Controller
         $this->loanDetailRepository = $loanDetailRepository;
     }
 
+    //I am working on this task based on my understanding of the provided PDF.
     public function index()
     {
         return view('admin.index');
