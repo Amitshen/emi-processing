@@ -10,6 +10,17 @@
 
 <body>
     <h1>Loan Details</h1>
+    <div class="dropdown-menu dropdown-menu-end" style="float: right" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+    </div>
     <table border="1">
         <tr>
             <th>Client ID</th>

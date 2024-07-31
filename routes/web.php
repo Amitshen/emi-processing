@@ -14,15 +14,19 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::redirect('/', 'login');
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/home', [AdminController::class, 'index']);
+    Route::get('/loan-details', [AdminController::class, 'loanDetails']);
+    Route::get('/process-data', [AdminController::class, 'processData']);
+    Route::post('/process-data', [AdminController::class, 'processDataPost']);
 });
 
-
-Route::get('/home', [AdminController::class, 'index'])->middleware('auth');
-Route::get('/loan-details', [AdminController::class, 'loanDetails'])->middleware('auth');
-Route::get('/process-data', [AdminController::class, 'processData'])->middleware('auth');
-Route::post('/process-data', [AdminController::class, 'processDataPost'])->middleware('auth');
 
 Auth::routes();
 
